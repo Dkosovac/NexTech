@@ -726,4 +726,117 @@ body.menu-open {
         transform: translateX(280px);
     }
 }
+/* Dodatni CSS za Aggregate Dashboard */
+.matrix-fall-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, transparent 95%, rgba(0, 243, 255, 0.05) 100%);
+    background-size: 100% 30px;
+    animation: matrix-fall 20s linear infinite;
+}
 
+.aggregate-item > div {
+    transition: all 0.3s ease;
+}
+
+.parameter-card {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.parameter-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 243, 255, 0.5);
+}
+
+.control-btn {
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: rgba(13, 21, 37, 0.5);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    color: #00f3ff;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    background: rgba(0, 243, 255, 0.1);
+    border-color: #00f3ff;
+    transform: translateY(-1px);
+}
+
+.control-btn.power-on:hover { background: rgba(72, 187, 120, 0.2); border-color: #48BB78; }
+.control-btn.power-off:hover { background: rgba(245, 101, 101, 0.2); border-color: #F56565; }
+.control-btn.maintenance:hover { background: rgba(246, 173, 85, 0.2); border-color: #F6AD55; }
+.control-btn.calibrate:hover { background: rgba(159, 122, 234, 0.2); border-color: #9F7AEA; }
+
+.chart-period {
+    padding: 4px 12px;
+    border-radius: 6px;
+    background: rgba(13, 21, 37, 0.5);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    color: #94a3b8;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.chart-period.active {
+    background: rgba(0, 243, 255, 0.2);
+    border-color: #00f3ff;
+    color: #00f3ff;
+}
+
+.chart-period:hover:not(.active) {
+    background: rgba(0, 243, 255, 0.1);
+    border-color: rgba(0, 243, 255, 0.4);
+}
+
+.slider-cyber {
+    background: linear-gradient(to right, #00f3ff, #9d00ff);
+}
+
+.slider-cyber::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #00f3ff;
+    cursor: pointer;
+    border: 2px solid #0a0e17;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+.slider-cyber::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #00f3ff;
+    cursor: pointer;
+    border: 2px solid #0a0e17;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+/* Animacija za status indikatore */
+@keyframes status-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.status-active { animation: status-pulse 2s ease-in-out infinite; }
+.status-warning { animation: status-pulse 1s ease-in-out infinite; }
+.status-critical { animation: status-pulse 0.5s ease-in-out infinite; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #aggregate-monitoring .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .control-btn {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+    }
+}

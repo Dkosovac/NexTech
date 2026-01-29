@@ -456,7 +456,8 @@
                         <div
                             class="bg-black/80 backdrop-blur-sm rounded-xl border border-cyber/30 overflow-hidden terminal-container">
                             <!-- Terminal Toolbar -->
-                            <div class="flex items-center justify-between px-4 py-2 bg-dark-card border-b border-cyber/20">
+                            <div
+                                class="flex items-center justify-between px-4 py-2 bg-dark-card border-b border-cyber/20">
                                 <div class="flex items-center space-x-4">
                                     <button class="terminal-tab active" data-tab="system">
                                         <i class="fas fa-server mr-2"></i>System
@@ -555,7 +556,8 @@
                                 <div class="absolute inset-0 flex items-center justify-center">
                                     <div class="relative w-64 h-64">
                                         <!-- Osnovna struktura mašine -->
-                                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                        <div
+                                            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                             <!-- Centralni motor -->
                                             <div class="relative">
                                                 <div class="w-32 h-32 rounded-full border-2 border-cyber/40 relative">
@@ -618,7 +620,8 @@
                                         </div>
 
                                         <!-- Senzori -->
-                                        <div class="absolute top-4 left-4 w-3 h-3 rounded-full bg-green-500 animate-pulse">
+                                        <div
+                                            class="absolute top-4 left-4 w-3 h-3 rounded-full bg-green-500 animate-pulse">
                                             <div
                                                 class="absolute -inset-2 rounded-full border-2 border-green-500 animate-ping">
                                             </div>
@@ -676,189 +679,519 @@
                 </div>
             </div>
 
-            <!-- Dodaj posle postojećih sekcija -->
-            <section id="industrial-automation" class="py-20 relative overflow-hidden">
-                <div class="absolute inset-0 bg-grid-pattern bg-[length:100px_100px] opacity-10"></div>
+
+            <section id="aggregate-monitoring" class="py-20 relative overflow-hidden">
+                <!-- Grid Background Pattern -->
+                <div class="absolute inset-0 bg-grid-pattern bg-[length:120px_120px] opacity-5"></div>
+
+                <!-- Live Data Stream Overlay -->
+                <div class="absolute inset-0 overflow-hidden">
+                    <div class="matrix-fall-lines"></div>
+                </div>
 
                 <div class="container mx-auto px-6 relative z-10">
-                    <div class="text-center mb-16">
-                        <span
-                            class="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-matrix/20 to-cyber/20 text-matrix font-semibold text-sm border border-matrix/30 mb-4">
-                            <i class="fas fa-industry mr-2"></i>INDUSTRIJSKA AUTOMATIZACIJA
-                        </span>
-                        <h2 class="text-4xl lg:text-5xl font-bold font-orbitron mb-6">
-                            <span class="text-white">Pametno praćenje </span>
-                            <span class="bg-gradient-to-r from-matrix to-cyber bg-clip-text text-transparent">mašina i
-                                agregata</span>
-                        </h2>
-                        <p class="text-xl text-gray-400 max-w-3xl mx-auto font-exo">
-                            Real-time monitoring, prediktivno održavanje i AI-optimizovano upravljanje industrijskom
-                            opremom.
-                        </p>
-                    </div>
-
-                    <!-- Dashboard sistema -->
-                    <div class="tech-card p-6 mb-12">
-                        <div class="flex items-center justify-between mb-8">
-                            <h3 class="text-2xl font-bold font-orbitron">Control Panel - Agregat #MX-245</h3>
-                            <div class="flex items-center space-x-4">
-                                <span
-                                    class="text-sm px-3 py-1 bg-green-500/20 text-green-400 rounded-full flex items-center">
-                                    <i class="fas fa-circle mr-2 text-xs animate-pulse"></i>
-                                    Online
-                                </span>
-                                <span class="text-sm text-gray-400">ESP32 v4.1</span>
-                            </div>
+                    <!-- Header sa Quick Actions -->
+                    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-10 gap-6">
+                        <div>
+                            <span
+                                class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-cyber/20 to-neon/20 text-cyber font-semibold text-sm border border-cyber/30 mb-3">
+                                <i class="fas fa-satellite-dish mr-2"></i>LIVE MONITORING
+                            </span>
+                            <h2 class="text-4xl lg:text-5xl font-bold font-orbitron">
+                                <span class="text-white">Aggregate</span>
+                                <span class="bg-gradient-to-r from-cyber to-neon bg-clip-text text-transparent">
+                                    Dashboard</span>
+                            </h2>
+                            <p class="text-gray-400 mt-3 max-w-2xl">Real-time praćenje svih agregata, senzorske analize
+                                i prediktivno održavanje</p>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                            <!-- Senzor 1 -->
-                            <div class="bg-dark-card/50 rounded-xl p-4 border border-cyber/20">
-                                <div class="flex items-center justify-between mb-3">
-                                    <div class="flex items-center">
-                                        <div class="w-10 h-10 rounded-lg bg-cyber/20 flex items-center justify-center mr-3">
-                                            <i class="fas fa-temperature-high text-cyber"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-semibold">Temperatura</h4>
-                                            <p class="text-xs text-gray-400">Motor blok</p>
-                                        </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <div class="text-2xl font-bold text-cyber" id="temp-value">85°C</div>
-                                        <div class="text-xs" id="temp-status">Normal</div>
-                                    </div>
-                                </div>
-                                <div class="h-2 bg-dark-card rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-cyber to-neon rounded-full" id="temp-bar"
-                                        style="width: 65%"></div>
-                                </div>
-                            </div>
-
-                            <!-- Senzor 2 -->
-                            <div class="bg-dark-card/50 rounded-xl p-4 border border-neon/20">
-                                <div class="flex items-center justify-between mb-3">
-                                    <div class="flex items-center">
-                                        <div class="w-10 h-10 rounded-lg bg-neon/20 flex items-center justify-center mr-3">
-                                            <i class="fas fa-tachometer-alt text-neon"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-semibold">Brzina</h4>
-                                            <p class="text-xs text-gray-400">RPM</p>
-                                        </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <div class="text-2xl font-bold text-neon" id="rpm-value">1450</div>
-                                        <div class="text-xs" id="rpm-status">Optimalno</div>
-                                    </div>
-                                </div>
-                                <div class="h-2 bg-dark-card rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-neon to-plasma rounded-full" id="rpm-bar"
-                                        style="width: 72%"></div>
-                                </div>
-                            </div>
-
-                            <!-- Senzor 3 -->
-                            <div class="bg-dark-card/50 rounded-xl p-4 border border-plasma/20">
-                                <div class="flex items-center justify-between mb-3">
-                                    <div class="flex items-center">
-                                        <div
-                                            class="w-10 h-10 rounded-lg bg-plasma/20 flex items-center justify-center mr-3">
-                                            <i class="fas fa-gas-pump text-plasma"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-semibold">Gorivo</h4>
-                                            <p class="text-xs text-gray-400">Nivo rezervoara</p>
-                                        </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <div class="text-2xl font-bold text-plasma" id="fuel-value">65%</div>
-                                        <div class="text-xs" id="fuel-status">Srednje</div>
-                                    </div>
-                                </div>
-                                <div class="h-2 bg-dark-card rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-plasma to-quantum rounded-full" id="fuel-bar"
-                                        style="width: 65%"></div>
-                                </div>
-                            </div>
-
-                            <!-- Senzor 4 -->
-                            <div class="bg-dark-card/50 rounded-xl p-4 border border-quantum/20">
-                                <div class="flex items-center justify-between mb-3">
-                                    <div class="flex items-center">
-                                        <div
-                                            class="w-10 h-10 rounded-lg bg-quantum/20 flex items-center justify-center mr-3">
-                                            <i class="fas fa-tint text-quantum"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-semibold">Pritisak ulja</h4>
-                                            <p class="text-xs text-gray-400">Bar</p>
-                                        </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <div class="text-2xl font-bold text-quantum" id="oil-value">3.2</div>
-                                        <div class="text-xs" id="oil-status">Normal</div>
-                                    </div>
-                                </div>
-                                <div class="h-2 bg-dark-card rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-quantum to-cyber rounded-full" id="oil-bar"
-                                        style="width: 80%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Grafikoni -->
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                            <div class="bg-dark-card/30 rounded-xl p-4 border border-cyber/20">
-                                <h4 class="font-bold mb-4">Trend temperature (24h)</h4>
-                                <div class="h-48 flex items-end space-x-1" id="temp-chart">
-                                    <!-- JavaScript će generisati -->
-                                </div>
-                            </div>
-
-                            <div class="bg-dark-card/30 rounded-xl p-4 border border-neon/20">
-                                <h4 class="font-bold mb-4">Potrošnja goriva</h4>
-                                <div class="h-48 flex items-end space-x-1" id="fuel-chart">
-                                    <!-- JavaScript će generisati -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Alarmi i notifikacije -->
-                        <div class="mt-6">
-                            <h4 class="font-bold mb-3">Sistemski alarmi</h4>
-                            <div class="space-y-2" id="alerts-container">
-                                <div
-                                    class="flex items-center justify-between p-3 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-exclamation-triangle text-yellow-500 mr-3"></i>
-                                        <div>
-                                            <div class="font-medium">Temperatura u porastu</div>
-                                            <div class="text-xs text-gray-400">Preporučuje se provera hlađenja</div>
-                                        </div>
-                                    </div>
-                                    <span class="text-xs text-yellow-500">2 min ago</span>
-                                </div>
-
-                                <div
-                                    class="flex items-center justify-between p-3 bg-green-500/10 border border-green-500/30 rounded-lg">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                                        <div>
-                                            <div class="font-medium">Sistem optimalan</div>
-                                            <div class="text-xs text-gray-400">Svi parametri u normalnim granicama</div>
-                                        </div>
-                                    </div>
-                                    <span class="text-xs text-green-500">15 min ago</span>
-                                </div>
-                            </div>
+                        <!-- Quick Action Buttons -->
+                        <div class="flex flex-wrap gap-3">
+                            <button id="emergency-stop"
+                                class="px-5 py-2.5 bg-red-500/20 border border-red-500/30 text-red-400 rounded-lg hover:bg-red-500/30 transition-colors flex items-center">
+                                <i class="fas fa-stop-circle mr-2"></i>Emergency Stop
+                            </button>
+                            <button id="download-report"
+                                class="px-5 py-2.5 bg-cyber/20 border border-cyber/30 text-cyber rounded-lg hover:bg-cyber/30 transition-colors flex items-center">
+                                <i class="fas fa-file-export mr-2"></i>Export Report
+                            </button>
+                            <button id="add-aggregate"
+                                class="px-5 py-2.5 bg-green-500/20 border border-green-500/30 text-green-400 rounded-lg hover:bg-green-500/30 transition-colors flex items-center">
+                                <i class="fas fa-plus-circle mr-2"></i>Add Aggregate
+                            </button>
                         </div>
                     </div>
-                    <!-- Tehnologije monitoringa -->
+
+                    <!-- Glavni Dashboard Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                        <!-- Panel 1: Lista Agregata -->
+                        <div class="tech-card p-5 lg:col-span-1">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-xl font-bold font-orbitron">Active Aggregates</h3>
+                                <span class="text-xs px-3 py-1 bg-cyber/20 text-cyber rounded-full" id="active-count">8
+                                    online</span>
+                            </div>
+
+                            <!-- Search Bar -->
+                            <div class="relative mb-4">
+                                <i
+                                    class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                                <input type="text" placeholder="Search aggregates..."
+                                    class="w-full bg-dark-card border border-cyber/20 rounded-lg pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-cyber">
+                            </div>
+
+                            <!-- Lista agregata -->
+                            <div class="space-y-3 max-h-[500px] overflow-y-auto pr-2" id="aggregate-list">
+                                <!-- Aggregate Item Template -->
+                                <div class="aggregate-item active" data-id="ag-001">
+                                    <div
+                                        class="flex items-center justify-between p-3 rounded-lg border border-green-500/20 bg-green-500/5 hover:bg-green-500/10 cursor-pointer transition-all">
+                                        <div class="flex items-center">
+                                            <div class="relative mr-3">
+                                                <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                                                <div class="absolute -inset-1 rounded-full border border-green-500/30 animate-ping"
+                                                    style="animation-delay: 0.2s;"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-white">AG-MX-001</h4>
+                                                <p class="text-xs text-gray-400">Diesel • 1500 RPM • 24h runtime</p>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-lg font-bold text-green-400">98%</div>
+                                            <div class="text-xs text-gray-400">Health</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="aggregate-item" data-id="ag-002">
+                                    <div
+                                        class="flex items-center justify-between p-3 rounded-lg border border-yellow-500/20 bg-yellow-500/5 hover:bg-yellow-500/10 cursor-pointer">
+                                        <div class="flex items-center">
+                                            <div class="relative mr-3">
+                                                <div class="w-3 h-3 rounded-full bg-yellow-500 animate-pulse"></div>
+                                                <div
+                                                    class="absolute -inset-1 rounded-full border border-yellow-500/30 animate-ping">
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-white">AG-MX-002</h4>
+                                                <p class="text-xs text-gray-400">Gas • 1450 RPM • 18h runtime</p>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-lg font-bold text-yellow-400">76%</div>
+                                            <div class="text-xs text-gray-400">Health</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="aggregate-item warning" data-id="ag-003">
+                                    <div
+                                        class="flex items-center justify-between p-3 rounded-lg border border-red-500/20 bg-red-500/5 hover:bg-red-500/10 cursor-pointer">
+                                        <div class="flex items-center">
+                                            <div class="relative mr-3">
+                                                <div class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
+                                                <div class="absolute -inset-1 rounded-full border border-red-500/30 animate-ping"
+                                                    style="animation-delay: 0.5s;"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-white">AG-MX-003</h4>
+                                                <p class="text-xs text-gray-400">Diesel • 1200 RPM • Warning</p>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-lg font-bold text-red-400">42%</div>
+                                            <div class="text-xs text-gray-400">Health</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Dodati više agregata po potrebi -->
+                            </div>
+
+                            <!-- Statistics Footer -->
+                            <div class="mt-6 pt-4 border-t border-cyber/20 grid grid-cols-3 gap-4">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-green-400">5</div>
+                                    <div class="text-xs text-gray-400">Operational</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-yellow-400">2</div>
+                                    <div class="text-xs text-gray-400">Warning</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-red-400">1</div>
+                                    <div class="text-xs text-gray-400">Critical</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel 2: Detail View i Controls -->
+                        <div class="tech-card p-5 lg:col-span-2">
+                            <!-- Detail Header -->
+                            <div
+                                class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold font-orbitron" id="selected-aggregate">AG-MX-001</h3>
+                                    <p class="text-gray-400" id="aggregate-location">Sector 7 • Main Power Plant</p>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="text-right">
+                                        <div class="text-sm text-gray-400">Last Updated</div>
+                                        <div class="font-mono text-green-400" id="last-update">00:00:12</div>
+                                    </div>
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-gradient-to-r from-cyber/20 to-neon/20 border border-cyber/30 flex items-center justify-center">
+                                        <i class="fas fa-bolt text-cyber text-xl"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Live Parameters Grid -->
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                                <div class="parameter-card bg-dark-card/50 border border-cyber/20 rounded-xl p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <div class="text-sm text-gray-400">Engine Temp</div>
+                                        <i class="fas fa-thermometer-half text-orange-400"></i>
+                                    </div>
+                                    <div class="text-2xl font-bold text-white" id="param-temp">85°C</div>
+                                    <div class="h-1.5 bg-dark-card rounded-full mt-2 overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full"
+                                            style="width: 65%"></div>
+                                    </div>
+                                    <div class="text-xs text-gray-400 mt-1">Normal Range: 60-90°C</div>
+                                </div>
+
+                                <div class="parameter-card bg-dark-card/50 border border-neon/20 rounded-xl p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <div class="text-sm text-gray-400">Fuel Level</div>
+                                        <i class="fas fa-gas-pump text-neon"></i>
+                                    </div>
+                                    <div class="text-2xl font-bold text-white" id="param-fuel">65%</div>
+                                    <div class="h-1.5 bg-dark-card rounded-full mt-2 overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-neon to-purple-500 rounded-full"
+                                            style="width: 65%"></div>
+                                    </div>
+                                    <div class="text-xs text-gray-400 mt-1">Refuel at 20%</div>
+                                </div>
+
+                                <div class="parameter-card bg-dark-card/50 border border-green-500/20 rounded-xl p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <div class="text-sm text-gray-400">Oil Pressure</div>
+                                        <i class="fas fa-tachometer-alt text-green-400"></i>
+                                    </div>
+                                    <div class="text-2xl font-bold text-white" id="param-oil">3.2 bar</div>
+                                    <div class="h-1.5 bg-dark-card rounded-full mt-2 overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-green-500 to-cyber rounded-full"
+                                            style="width: 80%"></div>
+                                    </div>
+                                    <div class="text-xs text-gray-400 mt-1">Optimal: 2.8-3.5 bar</div>
+                                </div>
+
+                                <div class="parameter-card bg-dark-card/50 border border-blue-500/20 rounded-xl p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <div class="text-sm text-gray-400">Voltage Output</div>
+                                        <i class="fas fa-bolt text-blue-400"></i>
+                                    </div>
+                                    <div class="text-2xl font-bold text-white" id="param-voltage">415V</div>
+                                    <div class="h-1.5 bg-dark-card rounded-full mt-2 overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-blue-500 to-cyber rounded-full"
+                                            style="width: 95%"></div>
+                                    </div>
+                                    <div class="text-xs text-gray-400 mt-1">Stable ±5V</div>
+                                </div>
+                            </div>
+
+                            <!-- Control Panel -->
+                            <div class="bg-dark-card/30 rounded-xl border border-cyber/20 p-5 mb-6">
+                                <h4 class="text-lg font-bold mb-4 flex items-center">
+                                    <i class="fas fa-gamepad mr-2 text-cyber"></i>Remote Control
+                                </h4>
+
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                    <button class="control-btn power-on">
+                                        <i class="fas fa-power-off mr-2"></i>Power On
+                                    </button>
+                                    <button class="control-btn power-off">
+                                        <i class="fas fa-stop-circle mr-2"></i>Power Off
+                                    </button>
+                                    <button class="control-btn maintenance">
+                                        <i class="fas fa-tools mr-2"></i>Maintenance Mode
+                                    </button>
+                                    <button class="control-btn calibrate">
+                                        <i class="fas fa-sliders-h mr-2"></i>Calibrate
+                                    </button>
+                                </div>
+
+                                <!-- RPM Control -->
+                                <div class="mt-6">
+                                    <div class="flex justify-between items-center mb-3">
+                                        <span class="text-sm">Engine RPM Control</span>
+                                        <span class="font-mono text-cyber" id="rpm-display">1450 RPM</span>
+                                    </div>
+                                    <input type="range" min="800" max="2000" value="1450" step="10"
+                                        class="w-full h-2 bg-dark-card rounded-lg appearance-none cursor-pointer slider-cyber"
+                                        id="rpm-slider">
+                                    <div class="flex justify-between text-xs text-gray-400 mt-1">
+                                        <span>800 RPM</span>
+                                        <span>1400 RPM</span>
+                                        <span>2000 RPM</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Alarms & Notifications -->
+                            <div class="bg-dark-card/30 rounded-xl border border-cyber/20 p-5">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-bold flex items-center">
+                                        <i class="fas fa-bell mr-2 text-yellow-500"></i>Active Alarms
+                                    </h4>
+                                    <span class="text-xs px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full"
+                                        id="alarm-count">2 active</span>
+                                </div>
+
+                                <div class="space-y-3" id="alarms-list">
+                                    <div
+                                        class="flex items-center justify-between p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-exclamation-triangle text-red-500 mr-3 text-lg"></i>
+                                            <div>
+                                                <div class="font-medium">High Temperature Alert</div>
+                                                <div class="text-xs text-gray-400">Engine temperature approaching
+                                                    critical limit</div>
+                                            </div>
+                                        </div>
+                                        <button
+                                            class="text-xs px-3 py-1 bg-red-500/20 text-red-400 rounded hover:bg-red-500/30">
+                                            Acknowledge
+                                        </button>
+                                    </div>
+
+                                    <div
+                                        class="flex items-center justify-between p-3 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-exclamation-circle text-yellow-500 mr-3 text-lg"></i>
+                                            <div>
+                                                <div class="font-medium">Fuel Level Low</div>
+                                                <div class="text-xs text-gray-400">Fuel at 25%, schedule refueling</div>
+                                            </div>
+                                        </div>
+                                        <button
+                                            class="text-xs px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded hover:bg-yellow-500/30">
+                                            Schedule
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts & Analytics Row -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Performance Chart -->
+                        <div class="tech-card p-5">
+                            <div class="flex items-center justify-between mb-6">
+                                <h4 class="text-lg font-bold">Performance Trend (24h)</h4>
+                                <div class="flex space-x-2">
+                                    <button class="chart-period active" data-period="24h">24h</button>
+                                    <button class="chart-period" data-period="7d">7d</button>
+                                    <button class="chart-period" data-period="30d">30d</button>
+                                </div>
+                            </div>
+                            <div class="h-64 relative">
+                                <canvas id="performance-chart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Maintenance Schedule -->
+                        <div class="tech-card p-5">
+                            <div class="flex items-center justify-between mb-6">
+                                <h4 class="text-lg font-bold">Maintenance Schedule</h4>
+                                <button class="text-sm px-3 py-1.5 bg-cyber/20 text-cyber rounded hover:bg-cyber/30">
+                                    <i class="fas fa-calendar-plus mr-1"></i>Add Task
+                                </button>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div
+                                    class="flex items-center justify-between p-3 bg-dark-card/50 rounded-lg border border-green-500/20">
+                                    <div class="flex items-center">
+                                        <div
+                                            class="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center mr-3">
+                                            <i class="fas fa-oil-can text-green-400"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium">Oil Change</div>
+                                            <div class="text-xs text-gray-400">Due in 3 days</div>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="text-xs px-3 py-1 bg-green-500/20 text-green-400 rounded hover:bg-green-500/30">
+                                        Schedule
+                                    </button>
+                                </div>
+
+                                <div
+                                    class="flex items-center justify-between p-3 bg-dark-card/50 rounded-lg border border-yellow-500/20">
+                                    <div class="flex items-center">
+                                        <div
+                                            class="w-10 h-10 rounded-lg bg-yellow-500/20 flex items-center justify-center mr-3">
+                                            <i class="fas fa-filter text-yellow-400"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium">Air Filter Replacement</div>
+                                            <div class="text-xs text-gray-400">Due in 7 days</div>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="text-xs px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded hover:bg-yellow-500/30">
+                                        Remind
+                                    </button>
+                                </div>
+
+                                <div
+                                    class="flex items-center justify-between p-3 bg-dark-card/50 rounded-lg border border-blue-500/20">
+                                    <div class="flex items-center">
+                                        <div
+                                            class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center mr-3">
+                                            <i class="fas fa-tools text-blue-400"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium">General Inspection</div>
+                                            <div class="text-xs text-gray-400">Due in 14 days</div>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="text-xs px-3 py-1 bg-blue-500/20 text-blue-400 rounded hover:bg-blue-500/30">
+                                        Schedule
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Maintenance Stats -->
+                            <div class="mt-6 pt-4 border-t border-cyber/20 grid grid-cols-3 gap-4">
+                                <div class="text-center">
+                                    <div class="text-xl font-bold text-green-400">12</div>
+                                    <div class="text-xs text-gray-400">Completed</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-xl font-bold text-yellow-400">3</div>
+                                    <div class="text-xs text-gray-400">Scheduled</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-xl font-bold text-red-400">1</div>
+                                    <div class="text-xs text-gray-400">Overdue</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Export & API Section -->
+                    <div class="mt-8 tech-card p-5">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                            <div>
+                                <h4 class="text-lg font-bold mb-2">Data Export & API</h4>
+                                <p class="text-gray-400 text-sm">Export real-time data or integrate with your systems
+                                </p>
+                            </div>
+                            <div class="flex space-x-3">
+                                <button
+                                    class="px-4 py-2 bg-cyber/20 border border-cyber/30 text-cyber rounded-lg hover:bg-cyber/30 flex items-center">
+                                    <i class="fas fa-download mr-2"></i>CSV Export
+                                </button>
+                                <button
+                                    class="px-4 py-2 bg-neon/20 border border-neon/30 text-neon rounded-lg hover:bg-neon/30 flex items-center">
+                                    <i class="fas fa-code mr-2"></i>API Docs
+                                </button>
+                                <button
+                                    class="px-4 py-2 bg-green-500/20 border border-green-500/30 text-green-400 rounded-lg hover:bg-green-500/30 flex items-center">
+                                    <i class="fas fa-sync-alt mr-2"></i>Webhook Setup
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- API Status -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                            <div class="bg-dark-card/30 p-4 rounded-lg border border-cyber/20">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm">REST API</span>
+                                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                                </div>
+                                <div class="font-mono text-sm text-gray-300">api.nextech.dev/v1/aggregates</div>
+                                <div class="text-xs text-gray-500 mt-1">Response time: 47ms</div>
+                            </div>
+
+                            <div class="bg-dark-card/30 p-4 rounded-lg border border-neon/20">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm">WebSocket Stream</span>
+                                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                                </div>
+                                <div class="font-mono text-sm text-gray-300">ws.nextech.dev/live</div>
+                                <div class="text-xs text-gray-500 mt-1">Connected: 24 clients</div>
+                            </div>
+
+                            <div class="bg-dark-card/30 p-4 rounded-lg border border-green-500/20">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm">MQTT Broker</span>
+                                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                                </div>
+                                <div class="font-mono text-sm text-gray-300">mqtt.nextech.dev:1883</div>
+                                <div class="text-xs text-gray-500 mt-1">QoS: Level 1</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
-        </section>
-        <!-- Decorative elements -->
+
+            <!-- Live Data Modal (hidden by default) -->
+            <div id="live-data-modal"
+                class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+                <div class="bg-darker border border-cyber/30 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+                    <div class="p-6 border-b border-cyber/30 flex items-center justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold font-orbitron">Live Data Stream</h3>
+                            <p class="text-gray-400">Real-time sensor data from selected aggregate</p>
+                        </div>
+                        <button id="close-modal"
+                            class="w-10 h-10 rounded-full bg-dark-card border border-cyber/30 text-gray-400 hover:text-white flex items-center justify-center">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-6 overflow-y-auto max-h-[70vh]">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Data Stream Visualization -->
+                            <div class="col-span-2">
+                                <div class="h-64 bg-black/50 rounded-xl border border-cyber/20 p-4">
+                                    <div class="text-center text-gray-400 py-20">
+                                        <i class="fas fa-wave-square text-4xl mb-3 text-cyber"></i>
+                                        <p>Live Data Stream Visualization</p>
+                                        <p class="text-sm">Connecting to MQTT broker...</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Raw Data Log -->
+                            <div class="col-span-2">
+                                <h4 class="text-lg font-bold mb-4">Raw Sensor Data</h4>
+                                <div
+                                    class="bg-black/50 rounded-lg border border-cyber/20 p-4 font-mono text-sm max-h-48 overflow-y-auto">
+                                    <div class="text-green-400">[2024-01-30 14:23:45] TEMP: 85.2°C | FUEL: 64.8% | RPM:
+                                        1452</div>
+                                    <div class="text-green-400">[2024-01-30 14:23:40] TEMP: 85.1°C | FUEL: 64.9% | RPM:
+                                        1450</div>
+                                    <div class="text-green-400">[2024-01-30 14:23:35] TEMP: 84.9°C | FUEL: 65.0% | RPM:
+                                        1449</div>
+                                    <!-- Dodati više logova -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Decorative elements -->
     </div> <!-- ZATVORI CONTENT WRAPPER -->
 
     <!-- JavaScript -->
@@ -1284,7 +1617,7 @@ System Metrics:
             // Toggle menu - AŽURIRANA FUNKCIONALNOST
             menuToggle.addEventListener('click', function () {
                 document.body.classList.toggle('menu-open');
-                
+
                 // Ažuriraj ikonu
                 menuIcon.classList.toggle('fa-bars');
                 menuIcon.classList.toggle('fa-times');
@@ -1490,7 +1823,388 @@ System Metrics:
                 }
             });
         });
-    </script>
-</body>
 
-</html>
+        ////////
+        document.addEventListener('DOMContentLoaded', function () {
+            // Inicijalizacija agregata
+            const aggregates = [
+                { id: 'ag-001', name: 'AG-MX-001', status: 'active', health: 98, type: 'Diesel', rpm: 1450 },
+                { id: 'ag-002', name: 'AG-MX-002', status: 'warning', health: 76, type: 'Gas', rpm: 1400 },
+                { id: 'ag-003', name: 'AG-MX-003', status: 'critical', health: 42, type: 'Diesel', rpm: 1200 },
+                { id: 'ag-004', name: 'AG-MX-004', status: 'active', health: 95, type: 'Hybrid', rpm: 1500 }
+            ];
+
+            // Selektovanje agregata
+            document.querySelectorAll('.aggregate-item').forEach(item => {
+                item.addEventListener('click', function () {
+                    // Ukloni active klasu sa svih
+                    document.querySelectorAll('.aggregate-item > div').forEach(div => {
+                        div.classList.remove('border-green-500/30', 'bg-green-500/10');
+                        div.classList.remove('border-yellow-500/30', 'bg-yellow-500/10');
+                        div.classList.remove('border-red-500/30', 'bg-red-500/10');
+                    });
+
+                    // Dodaj active na selektovani
+                    const innerDiv = this.querySelector('div');
+                    if (this.classList.contains('active')) {
+                        innerDiv.classList.add('border-green-500/30', 'bg-green-500/10');
+                    } else if (this.classList.contains('warning')) {
+                        innerDiv.classList.add('border-yellow-500/30', 'bg-yellow-500/10');
+                    } else if (this.classList.contains('critical')) {
+                        innerDiv.classList.add('border-red-500/30', 'bg-red-500/10');
+                    }
+
+                    // Ažuriraj detalje
+                    const aggregateId = this.dataset.id;
+                    const aggregate = aggregates.find(agg => agg.id === aggregateId);
+
+                    if (aggregate) {
+                        document.getElementById('selected-aggregate').textContent = aggregate.name;
+                        document.getElementById('param-fuel').textContent = `${aggregate.health}%`;
+
+                        // Ažuriraj druge parametre
+                        document.getElementById('param-temp').textContent = `${Math.floor(Math.random() * 20) + 75}°C`;
+                        document.getElementById('param-oil').textContent = `${(Math.random() + 2.8).toFixed(1)} bar`;
+                        document.getElementById('rpm-display').textContent = `${aggregate.rpm} RPM`;
+                        document.getElementById('rpm-slider').value = aggregate.rpm;
+                    }
+                });
+            });
+
+            // RPM Slider
+            const rpmSlider = document.getElementById('rpm-slider');
+            const rpmDisplay = document.getElementById('rpm-display');
+
+            rpmSlider.addEventListener('input', function () {
+                rpmDisplay.textContent = `${this.value} RPM`;
+
+                // Simulacija promene temperature na osnovu RPM
+                const tempElement = document.getElementById('param-temp');
+                const baseTemp = 75;
+                const tempIncrease = (this.value - 1000) / 1000 * 15;
+                const newTemp = Math.min(120, baseTemp + tempIncrease);
+                tempElement.textContent = `${newTemp.toFixed(0)}°C`;
+
+                // Ažuriraj progress bar
+                const tempBar = document.querySelector('.parameter-card:nth-child(1) .h-1.5 > div');
+                const tempPercent = (newTemp - 60) / 30 * 100;
+                tempBar.style.width = `${Math.min(100, Math.max(0, tempPercent))}%`;
+            });
+
+            // Control Buttons
+            document.querySelectorAll('.control-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const action = this.textContent.trim();
+
+                    // Simulacija akcije
+                    if (typeof addLog === 'function') {
+                        addLog('info', `Control action executed: ${action}`);
+                    }
+
+                    // Vizuelni feedback
+                    this.classList.add('bg-cyber/30', 'border-cyber');
+                    setTimeout(() => {
+                        this.classList.remove('bg-cyber/30', 'border-cyber');
+                    }, 500);
+
+                    // Specijalne akcije
+                    if (action.includes('Power On')) {
+                        document.querySelector('.aggregate-item.active .w-3.h-3').classList.add('animate-pulse');
+                    } else if (action.includes('Power Off')) {
+                        document.querySelector('.aggregate-item.active .w-3.h-3').classList.remove('animate-pulse');
+                    }
+                });
+            });
+
+            // Emergency Stop
+            document.getElementById('emergency-stop').addEventListener('click', function () {
+                if (confirm('⚠️ EMERGENCY STOP\n\nThis will immediately shut down all aggregates. Continue?')) {
+                    if (typeof addLog === 'function') {
+                        addLog('error', 'EMERGENCY STOP ACTIVATED - All aggregates shutting down');
+                    }
+
+                    this.innerHTML = '<i class="fas fa-stop-circle mr-2"></i>SHUTTING DOWN...';
+                    this.classList.add('bg-red-600', 'text-white');
+
+                    // Simulacija gašenja
+                    setTimeout(() => {
+                        if (typeof addLog === 'function') {
+                            addLog('success', 'All aggregates safely shut down');
+                        }
+                        this.innerHTML = '<i class="fas fa-check-circle mr-2"></i>ALL STOPPED';
+                    }, 2000);
+                }
+            });
+
+            // Chart Period Selector
+            document.querySelectorAll('.chart-period').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    document.querySelectorAll('.chart-period').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Simulacija promene grafikona
+                    const period = this.dataset.period;
+                    if (typeof addLog === 'function') {
+                        addLog('info', `Chart period changed to ${period}`);
+                    }
+                });
+            });
+
+            // Live Data Update Simulation
+            let updateInterval = setInterval(() => {
+                // Ažuriraj vreme
+                const lastUpdate = document.getElementById('last-update');
+                const time = lastUpdate.textContent.split(':');
+                let seconds = parseInt(time[2]) + 1;
+                let minutes = parseInt(time[1]);
+                let hours = parseInt(time[0]);
+
+                if (seconds >= 60) {
+                    seconds = 0;
+                    minutes++;
+                    if (minutes >= 60) {
+                        minutes = 0;
+                        hours++;
+                        if (hours >= 24) hours = 0;
+                    }
+                }
+
+                lastUpdate.textContent =
+                    `${hours.toString().padStart(2, '0')}:` +
+                    `${minutes.toString().padStart(2, '0')}:` +
+                    `${seconds.toString().padStart(2, '0')}`;
+
+                // Nasumične promene parametara
+                const params = ['param-temp', 'param-fuel', 'param-oil', 'param-voltage'];
+                params.forEach(paramId => {
+                    const element = document.getElementById(paramId);
+                    if (element && Math.random() > 0.7) { // 30% šansa za promenu
+                        let value, unit = '';
+
+                        if (paramId.includes('temp')) {
+                            value = 75 + Math.random() * 15;
+                            element.textContent = `${value.toFixed(1)}°C`;
+                        } else if (paramId.includes('fuel')) {
+                            value = parseFloat(element.textContent);
+                            value -= Math.random() * 0.1; // Sporo opada
+                            if (value < 0) value = 100;
+                            element.textContent = `${value.toFixed(1)}%`;
+                        } else if (paramId.includes('oil')) {
+                            value = 2.8 + Math.random() * 0.8;
+                            element.textContent = `${value.toFixed(2)} bar`;
+                        } else if (paramId.includes('voltage')) {
+                            value = 410 + Math.random() * 10;
+                            element.textContent = `${value.toFixed(0)}V`;
+                        }
+                    }
+                });
+            }, 1000); // Ažuriraj svake sekunde
+
+            // Modal Controls
+            const liveModal = document.getElementById('live-data-modal');
+            const closeModal = document.getElementById('close-modal');
+
+            // Dodaj dugme za otvaranje modala (može se dodati gde god je potrebno)
+
+            // Dodaj dugme u dashboard header
+            document.querySelector('#aggregate-monitoring .container > div:first-child').appendChild(openLiveData);
+
+            closeModal.addEventListener('click', () => {
+                liveModal.classList.add('hidden');
+                liveModal.classList.remove('flex');
+            });
+
+            // Klik van modala ga zatvara
+            liveModal.addEventListener('click', (e) => {
+                if (e.target === liveModal) {
+                    liveModal.classList.add('hidden');
+                    liveModal.classList.remove('flex');
+                }
+            });
+
+            // Chart.js inicijalizacija (ako je uključen)
+            if (typeof Chart !== 'undefined') {
+                const ctx = document.getElementById('performance-chart');
+                if (ctx) {
+                    new Chart(ctx.getContext('2d'), {
+                        type: 'line',
+                        data: {
+                            labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'],
+                            datasets: [{
+                                label: 'Temperature',
+                                data: [72, 78, 85, 88, 82, 76, 74],
+                                borderColor: '#00f3ff',
+                                backgroundColor: 'rgba(0, 243, 255, 0.1)',
+                                tension: 0.4
+                            }, {
+                                label: 'RPM',
+                                data: [1200, 1350, 1450, 1500, 1450, 1300, 1250],
+                                borderColor: '#9d00ff',
+                                backgroundColor: 'rgba(157, 0, 255, 0.1)',
+                                tension: 0.4
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    labels: { color: '#fff' }
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    grid: { color: 'rgba(255,255,255,0.1)' },
+                                    ticks: { color: '#aaa' }
+                                },
+                                y: {
+                                    grid: { color: 'rgba(255,255,255,0.1)' },
+                                    ticks: { color: '#aaa' }
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+
+    <style>
+        /* Dodatni CSS za Aggregate Dashboard */
+        .matrix-fall-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, transparent 95%, rgba(0, 243, 255, 0.05) 100%);
+            background-size: 100% 30px;
+            animation: matrix-fall 20s linear infinite;
+        }
+
+        .aggregate-item>div {
+            transition: all 0.3s ease;
+        }
+
+        .parameter-card {
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .parameter-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0, 243, 255, 0.5);
+        }
+
+        .control-btn {
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: rgba(13, 21, 37, 0.5);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            color: #00f3ff;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .control-btn:hover {
+            background: rgba(0, 243, 255, 0.1);
+            border-color: #00f3ff;
+            transform: translateY(-1px);
+        }
+
+        .control-btn.power-on:hover {
+            background: rgba(72, 187, 120, 0.2);
+            border-color: #48BB78;
+        }
+
+        .control-btn.power-off:hover {
+            background: rgba(245, 101, 101, 0.2);
+            border-color: #F56565;
+        }
+
+        .control-btn.maintenance:hover {
+            background: rgba(246, 173, 85, 0.2);
+            border-color: #F6AD55;
+        }
+
+        .control-btn.calibrate:hover {
+            background: rgba(159, 122, 234, 0.2);
+            border-color: #9F7AEA;
+        }
+
+        .chart-period {
+            padding: 4px 12px;
+            border-radius: 6px;
+            background: rgba(13, 21, 37, 0.5);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            color: #94a3b8;
+            font-size: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .chart-period.active {
+            background: rgba(0, 243, 255, 0.2);
+            border-color: #00f3ff;
+            color: #00f3ff;
+        }
+
+        .chart-period:hover:not(.active) {
+            background: rgba(0, 243, 255, 0.1);
+            border-color: rgba(0, 243, 255, 0.4);
+        }
+
+        .slider-cyber {
+            background: linear-gradient(to right, #00f3ff, #9d00ff);
+        }
+
+        .slider-cyber::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #00f3ff;
+            cursor: pointer;
+            border: 2px solid #0a0e17;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        .slider-cyber::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #00f3ff;
+            cursor: pointer;
+            border: 2px solid #0a0e17;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        /* Animacija za status indikatore */
+        @keyframes status-pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .status-active {
+            animation: status-pulse 2s ease-in-out infinite;
+        }
+
+        .status-warning {
+            animation: status-pulse 1s ease-in-out infinite;
+        }
+
+        .status-critical {
+            animation: status-pulse 0.5s ease-in-out infinite;
+        }
+
+        /* Responsive adjustments */
+</style>
+
+        </body>
+        </html>
