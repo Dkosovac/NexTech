@@ -1,0 +1,729 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #00f3ff 0%, #9d00ff 50%, #ff0080 100%);
+    --secondary-gradient: linear-gradient(135deg, #ffd700 0%, #ff0080 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #050a15;
+    color: #f0f8ff;
+    font-family: 'Exo 2', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    max-width: 100vw;
+}
+
+/* 2. Omotač (container) za sadržaj */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* 3. Grid za sekciju sa brojevima (128+, 1.2M+, itd) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+}
+
+/* 4. Donji toolbar sakriti na malim ekranima ili pretvoriti u vertikalni meni */
+.bottom-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .bottom-toolbar {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* 5. Ako se koriste fiksne širine, zameniti ih relativnim */
+.section-wide {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* 6. Logo i navigacija */
+.navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+/* 7. Tekst "TEHNOLOGIJA BEZ GRANICA" i paragraf */
+.hero-text {
+    font-size: clamp(1rem, 4vw, 1.8rem);
+    padding: 0 15px;
+}
+
+/* 8. Ako se koriste tabele za layout, zameniti flex/grid-om */
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(10, 14, 23, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00f3ff;
+    /* Fallback boja */
+    background: var(--primary-gradient);
+    border-radius: 5px;
+}
+
+/* Matrix efekat pozadine */
+.matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.05;
+    background:
+        linear-gradient(90deg, transparent 49%, rgba(0, 255, 65, 0.03) 50%, transparent 51%),
+        linear-gradient(transparent 49%, rgba(0, 255, 65, 0.03) 50%, transparent 51%);
+    background-size: 50px 50px;
+}
+
+/* Glitch efekat */
+.glitch {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff0080;
+    animation: glitch-1 2s infinite linear alternate-reverse;
+    clip-path: inset(44px calc(100% - 450px) calc(100% - 56px) 0);
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #00f3ff;
+    animation: glitch-2 3s infinite linear alternate-reverse;
+    clip-path: inset(44px calc(100% - 450px) calc(100% - 56px) 0);
+}
+
+@keyframes glitch-1 {
+    0% {
+        clip-path: inset(20px 0 25px 0);
+    }
+    5% {
+        clip-path: inset(15px 0 40px 0);
+    }
+    10% {
+        clip-path: inset(35px 0 50px 0);
+    }
+    15% {
+        clip-path: inset(45px 0 60px 0);
+    }
+    20% {
+        clip-path: inset(10px 0 70px 0);
+    }
+    25% {
+        clip-path: inset(30px 0 80px 0);
+    }
+    30% {
+        clip-path: inset(40px 0 90px 0);
+    }
+    35% {
+        clip-path: inset(50px 0 100px 0);
+    }
+    40% {
+        clip-path: inset(65px 0 100px 0);
+    }
+    45% {
+        clip-path: inset(15px 0 100px 0);
+    }
+    50% {
+        clip-path: inset(25px 0 100px 0);
+    }
+    55% {
+        clip-path: inset(35px 0 100px 0);
+    }
+    60% {
+        clip-path: inset(45px 0 100px 0);
+    }
+    65% {
+        clip-path: inset(55px 0 100px 0);
+    }
+    70% {
+        clip-path: inset(65px 0 100px 0);
+    }
+    75% {
+        clip-path: inset(75px 0 100px 0);
+    }
+    80% {
+        clip-path: inset(85px 0 100px 0);
+    }
+    85% {
+        clip-path: inset(95px 0 100px 0);
+    }
+    90% {
+        clip-path: inset(105px 0 100px 0);
+    }
+    95% {
+        clip-path: inset(115px 0 100px 0);
+    }
+    100% {
+        clip-path: inset(125px 0 100px 0);
+    }
+}
+
+@keyframes glitch-2 {
+    0% {
+        clip-path: inset(125px 0 135px 0);
+    }
+    5% {
+        clip-path: inset(115px 0 145px 0);
+    }
+    10% {
+        clip-path: inset(105px 0 155px 0);
+    }
+    15% {
+        clip-path: inset(95px 0 165px 0);
+    }
+    20% {
+        clip-path: inset(85px 0 175px 0);
+    }
+    25% {
+        clip-path: inset(75px 0 185px 0);
+    }
+    30% {
+        clip-path: inset(65px 0 195px 0);
+    }
+    35% {
+        clip-path: inset(55px 0 205px 0);
+    }
+    40% {
+        clip-path: inset(45px 0 215px 0);
+    }
+    45% {
+        clip-path: inset(35px 0 225px 0);
+    }
+    50% {
+        clip-path: inset(25px 0 235px 0);
+    }
+    55% {
+        clip-path: inset(15px 0 245px 0);
+    }
+    60% {
+        clip-path: inset(5px 0 255px 0);
+    }
+    65% {
+        clip-path: inset(1px 0 265px 0);
+    }
+    70% {
+        clip-path: inset(10px 0 275px 0);
+    }
+    75% {
+        clip-path: inset(20px 0 285px 0);
+    }
+    80% {
+        clip-path: inset(30px 0 295px 0);
+    }
+    85% {
+        clip-path: inset(40px 0 305px 0);
+    }
+    90% {
+        clip-path: inset(50px 0 315px 0);
+    }
+    95% {
+        clip-path: inset(60px 0 325px 0);
+    }
+    100% {
+        clip-path: inset(70px 0 335px 0);
+    }
+}
+
+/* 3D kocka efekat */
+#cube-container {
+    position: absolute;
+    right: 5%;
+    top: 20%;
+    width: 300px;
+    height: 300px;
+    z-index: 1;
+}
+
+/* Tehnološke karte */
+.tech-card {
+    background: rgba(13, 21, 37, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 243, 255, 0.1);
+    border-radius: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.tech-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--primary-gradient);
+    transform: scaleX(0);
+    transition: transform 0.6s ease;
+}
+
+.tech-card:hover::before {
+    transform: scaleX(1);
+}
+
+.tech-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(0, 243, 255, 0.5);
+    box-shadow:
+        0 20px 40px rgba(0, 243, 255, 0.15),
+        0 0 60px rgba(157, 0, 255, 0.1);
+}
+
+/* AI Chatbot */
+#chatbot-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+#chatbot-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 243, 255, 0.6);
+}
+
+#chatbot {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    height: 500px;
+    background: rgba(13, 21, 37, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Particle efekat */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Progress bar za skrol */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--primary-gradient);
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* Parallax efekat */
+.parallax-layer {
+    position: absolute;
+    will-change: transform;
+}
+
+/* Hologram efekat */
+.hologram {
+    position: relative;
+    overflow: hidden;
+}
+
+.hologram::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to bottom,
+            transparent,
+            rgba(0, 243, 255, 0.1),
+            transparent);
+    transform: rotate(30deg);
+    animation: hologram-sweep 3s linear infinite;
+}
+
+@keyframes hologram-sweep {
+    0% {
+        transform: translateY(-100%) rotate(30deg);
+    }
+
+    100% {
+        transform: translateY(100%) rotate(30deg);
+    }
+}
+
+/* Terminal Styles */
+.terminal-container {
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+}
+
+#terminal-output {
+    color: #00ff41;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+    line-height: 1.5;
+}
+
+#terminal-output .log-info {
+    color: #00f3ff;
+}
+
+#terminal-output .log-warn {
+    color: #ffd700;
+}
+
+#terminal-output .log-error {
+    color: #ff0080;
+}
+
+#terminal-output .log-success {
+    color: #00ff41;
+}
+
+#terminal-input {
+    caret-color: #00ff41;
+}
+
+/* Scrollbar za terminal */
+#terminal-output::-webkit-scrollbar {
+    width: 8px;
+}
+
+#terminal-output::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#terminal-output::-webkit-scrollbar-thumb {
+    background: rgba(0, 243, 255, 0.3);
+    border-radius: 4px;
+}
+
+#terminal-output::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 243, 255, 0.5);
+}
+
+/* Cyberpunk Side Menu Styles */
+#cyber-menu {
+    box-shadow: 10px 0 30px rgba(0, 243, 255, 0.1);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 320px;
+    transform: translateX(-100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 40;
+}
+
+body.menu-open #cyber-menu {
+    transform: translateX(0);
+}
+
+/* Threat Level Buttons */
+.threat-level-btn {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.level-green {
+    background: rgba(22, 101, 52, 0.3);
+    color: #34d399;
+    border: 1px solid #065f46;
+}
+
+.level-green:hover {
+    background: rgba(22, 101, 52, 0.5);
+    color: white;
+}
+
+.level-yellow {
+    background: rgba(146, 64, 14, 0.3);
+    color: #fbbf24;
+    border: 1px solid #92400e;
+}
+
+.level-yellow:hover {
+    background: rgba(146, 64, 14, 0.5);
+    color: white;
+}
+
+.level-red {
+    background: rgba(127, 29, 29, 0.3);
+    color: #f87171;
+    border: 1px solid #7f1d1d;
+}
+
+.level-red:hover {
+    background: rgba(127, 29, 29, 0.5);
+    color: white;
+}
+
+/* Verbosity Buttons */
+.verbosity-btn {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background: transparent;
+    border: 1px solid #374151;
+    color: #9ca3af;
+    font-size: 0.75rem;
+    transition: all 0.3s;
+}
+
+.verbosity-btn.active {
+    background: rgba(0, 243, 255, 0.2);
+    color: #00f3ff;
+    border-color: #00f3ff;
+}
+
+/* Action Buttons */
+.action-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn.lockdown {
+    background: rgba(127, 29, 29, 0.3);
+    color: #f87171;
+    border: 1px solid #7f1d1d;
+}
+
+.action-btn.lockdown:hover {
+    background: rgba(127, 29, 29, 0.5);
+    color: white;
+}
+
+.action-btn.backup {
+    background: rgba(30, 64, 175, 0.3);
+    color: #60a5fa;
+    border: 1px solid #1e40af;
+}
+
+.action-btn.backup:hover {
+    background: rgba(30, 64, 175, 0.5);
+    color: white;
+}
+
+.action-btn.export {
+    background: rgba(22, 101, 52, 0.3);
+    color: #34d399;
+    border: 1px solid #065f46;
+}
+
+.action-btn.export:hover {
+    background: rgba(22, 101, 52, 0.5);
+    color: white;
+}
+
+/* Theme Buttons */
+.theme-btn {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: rgba(13, 21, 37, 0.5);
+    border: 1px solid #4b5563;
+    color: #9ca3af;
+    transition: all 0.3s;
+}
+
+.theme-btn:hover {
+    border-color: #00f3ff;
+    color: white;
+}
+
+.theme-btn.active {
+    border-color: #00f3ff;
+    background: rgba(0, 243, 255, 0.1);
+    color: #00f3ff;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1a202c;
+    border: 1px solid #00f3ff;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 3px;
+    background-color: #00f3ff;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #0a0e17;
+    border-color: #00f3ff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Range Slider Styling */
+#animation-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #00f3ff;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00f3ff;
+    border: none;
+}
+
+#animation-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #00f3ff;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00f3ff;
+    border: none;
+}
+
+/* Menu Toggle Button Animation */
+#menu-toggle {
+    animation: pulse-cyber 2s infinite;
+}
+
+@keyframes pulse-cyber {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 243, 255, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(0, 243, 255, 0.8); }
+}
+
+/* Content Wrapper */
+#content-wrapper {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: left center;
+}
+
+body.menu-open #content-wrapper {
+    transform: translateX(320px);
+}
+
+body.menu-open {
+    overflow-x: hidden;
+}
+
+/* Priprema za zvuk - nema vizuelnih promena */
+#menuSound {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #cube-container {
+        display: none;
+    }
+
+    #chatbot {
+        width: 90vw;
+        right: 5vw;
+    }
+
+    #cyber-menu {
+        width: 280px;
+    }
+
+    #menu-toggle {
+        left: 20px;
+        top: 20px;
+        width: 44px;
+        height: 44px;
+    }
+
+    body.menu-open #content-wrapper {
+        transform: translateX(280px);
+    }
+}
+
